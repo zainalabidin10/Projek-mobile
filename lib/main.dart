@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:project_madbuah/page/category.dart';
+import 'package:project_madbuah/page/history_page.dart';
 import 'package:project_madbuah/page/main_homepage.dart';
 import 'package:project_madbuah/home/login_page.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -19,7 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.orange,
       ),
-      home: ProfilePage(),
+      home: LoginPage(),
     );
   }
 }
@@ -78,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ));
                 },
                 child: Text(
-                  'Next',
+                  'Selanjutnya',
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.w100

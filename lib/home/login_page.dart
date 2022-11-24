@@ -3,6 +3,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:project_madbuah/home/loginWidget.dart';
 import 'package:project_madbuah/page/main_homepage.dart';
 import 'package:project_madbuah/main.dart';
 import 'package:project_madbuah/home/register_page.dart';
@@ -51,29 +52,23 @@ class _LoginPageState extends State<LoginPage> {
           child: Stack(
             alignment: Alignment.center,
             children: <Widget>[
-              Positioned(
-                top: 10,
-                left: 10,
-                right: 10,
-                child: Image.asset(
-                "assets/ssss.jpg",
-                width: 100.0,
-                height: 180.0,
-                fit: BoxFit.cover,
-                ),
-              ),
               SafeArea(
                 child: SingleChildScrollView(
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       Column(
                         children: [
+                          Container(
+                            height: 400,
+                            child: HeaderWidget(
+                                400, true, Image.asset("assets/ssss.jpg")),
+                          ),
                           const Text(
                             "LOGIN",
                             style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold),
+                                fontSize: 20, fontWeight: FontWeight.bold),
                           ),
                           const SizedBox(height: 16.0 * 2),
                         ],
@@ -117,20 +112,19 @@ class _LoginPageState extends State<LoginPage> {
                                   ),
                                   const SizedBox(height: 16.0),
                                   ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                  primary: Colors.orange
-                                  ),
-                                  onPressed: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) {
-                                          return Home();
-                                        },
-                                      ),
-                                    );
-                                  },
-                                  child: const Text("Login"),
+                                    style: ElevatedButton.styleFrom(
+                                        primary: Colors.orange),
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) {
+                                            return Home();
+                                          },
+                                        ),
+                                      );
+                                    },
+                                    child: const Text("Login"),
                                   ),
                                   const SizedBox(height: 16.0),
                                   Row(
@@ -138,8 +132,7 @@ class _LoginPageState extends State<LoginPage> {
                                     children: <Widget>[
                                       const Text(
                                         "Don’t have an Account ? ",
-                                        style:
-                                            TextStyle(color: Colors.orange),
+                                        style: TextStyle(color: Colors.orange),
                                       ),
                                       GestureDetector(
                                         onTap: () {
@@ -161,12 +154,11 @@ class _LoginPageState extends State<LoginPage> {
                                         ),
                                       )
                                     ],
-                                  ), 
+                                  ),
                                 ],
                               ),
                             ),
                           ),
-                          
                           const Spacer(),
                         ],
                       ),

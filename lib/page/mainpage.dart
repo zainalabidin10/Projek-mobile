@@ -65,7 +65,7 @@ class _HomeState extends State<Home> {
                           color: currentTab == 0 ? Colors.orange : Colors.grey,
                         ),
                         Text(
-                          'Home',
+                          'Beranda',
                           style: TextStyle(
                               color: currentTab == 0
                                   ? Colors.orange
@@ -91,7 +91,7 @@ class _HomeState extends State<Home> {
                           color: currentTab == 1 ? Colors.orange : Colors.grey,
                         ),
                         Text(
-                          'History',
+                          'Riwayat',
                           style: TextStyle(
                               color: currentTab == 1
                                   ? Colors.orange
@@ -121,7 +121,7 @@ class _HomeState extends State<Home> {
                           color: currentTab == 2 ? Colors.orange : Colors.grey,
                         ),
                         Text(
-                          'Category',
+                          'Kategori',
                           style: TextStyle(
                               color: currentTab == 2
                                   ? Colors.orange
@@ -147,7 +147,7 @@ class _HomeState extends State<Home> {
                           color: currentTab == 3 ? Colors.orange : Colors.grey,
                         ),
                         Text(
-                          'Profile',
+                          'Profil',
                           style: TextStyle(
                               color: currentTab == 3
                                   ? Colors.orange

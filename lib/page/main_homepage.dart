@@ -65,7 +65,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: const [
                 Text(
-                  "Welcome!",
+                  "Selamat Datang!",
                   style: TextStyle(
                     fontSize: 20.0,
                   ),
@@ -74,7 +74,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
                   height: 4.0,
                 ),
                 Text(
-                  "Let's relax and buy something!",
+                  "Ayo beli buah-buahan segar disini",
                   style: TextStyle(
                     fontSize: 14.0,
                     fontWeight: FontWeight.bold,
@@ -118,7 +118,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
                         ),
                         child: TextField(
                           decoration: InputDecoration(
-                            hintText: "Search",
+                            hintText: "Cari",
                             hintStyle: TextStyle(
                               color: Colors.grey[400]!,
                             ),
@@ -253,7 +253,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
                   height: 16.0,
                 ),
                 const Text(
-                  "Popular Fruits",
+                  "Buah Terpopuler",
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,

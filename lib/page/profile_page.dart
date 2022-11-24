@@ -15,32 +15,6 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[300],
-      appBar: AppBar(
-        elevation: 0.0,
-        backgroundColor: Colors.orange[800],
-        iconTheme: const IconThemeData(
-          color: Colors.white,
-        ),
-        title: const Text("Profile"),
-        actions: [
-          IconButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return LoginPage();
-                  },
-                ),
-              );
-            },
-            icon: const Icon(
-              Icons.logout,
-              size: 24.0,
-            ),
-          ),
-        ],
-      ),
       body: SingleChildScrollView(
         controller: ScrollController(),
         child: Column(
@@ -89,6 +63,22 @@ class _ProfilePageState extends State<ProfilePage> {
                   const SizedBox(
                     width: 8.0,
                   ),
+                  IconButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return LoginPage();
+                          },
+                        ),
+                      );
+                    },
+                    icon: const Icon(
+                      Icons.logout,
+                      size: 24.0,
+                    ),
+                  ),
                   InkWell(
                     onTap: () {},
                     child: CircleAvatar(
@@ -120,7 +110,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           cursorColor: Colors.black,
                           cursorWidth: 1,
                           decoration: const InputDecoration(
-                            labelText: 'Username',
+                            labelText: 'Nama',
                             labelStyle: TextStyle(
                               color: Colors.black,
                             ),
@@ -160,7 +150,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           cursorColor: Colors.black,
                           cursorWidth: 1,
                           decoration: const InputDecoration(
-                            labelText: 'Fullname',
+                            labelText: 'Nama Lengkap',
                             labelStyle: TextStyle(
                               color: Colors.black,
                             ),

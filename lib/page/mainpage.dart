@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project_madbuah/page/history_page.dart';
+import 'package:project_madbuah/page/orderlist_page.dart';
 import 'package:project_madbuah/page/main_homepage.dart';
 import 'package:project_madbuah/page/profile_page.dart';
 import 'package:project_madbuah/page/shopping_page.dart';
@@ -12,7 +12,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int currentTab = 0;
-  final List<Widget> screens = [MainFoodPage(), HistoryPage(), ProfilePage(), WishlistPage()];
+  final List<Widget> screens = [MainFoodPage(), OrderPage(), ProfilePage(), WishlistPage()];
   final PageStorageBucket bucket = PageStorageBucket();
   Widget currentScreen = MainFoodPage();
   @override
@@ -79,7 +79,7 @@ class _HomeState extends State<Home> {
                     minWidth: 40,
                     onPressed: () {
                       setState(() {
-                        currentScreen = HistoryPage();
+                        currentScreen = OrderPage();
                         currentTab = 1;
                       });
                     },

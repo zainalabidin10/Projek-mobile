@@ -20,41 +20,44 @@ class _WishlistPageState extends State<WishlistPage> {
         width: MediaQuery.of(context).size.width,
         height: 60,
         color: Colors.orange,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            IconButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return MainFoodPage();
-                    },
-                  ),
-                );
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return Home();
-                    },
-                  ),
-                );
-              },
-              icon: const Icon(
-                Icons.arrow_back_ios,
-                size: 20.0,
+        child: Container(
+          margin: EdgeInsets.only(left: 10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              IconButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return MainFoodPage();
+                      },
+                    ),
+                  );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return Home();
+                      },
+                    ),
+                  );
+                },
+                icon: const Icon(
+                  Icons.arrow_back_ios,
+                  size: 20.0,
+                ),
               ),
-            ),
-            Text('Kategori',
-            style: TextStyle(
-              fontSize: 20
-            ),
-            ),
-          ],
+              Text('Kategori',
+              style: TextStyle(
+                fontSize: 20
+              ),
+              ),
+            ],
+          ),
         ),
-      )
+      ),
     );
   }
 }

@@ -110,27 +110,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           cursorColor: Colors.black,
                           cursorWidth: 1,
                           decoration: const InputDecoration(
-                            labelText: 'Nama',
-                            labelStyle: TextStyle(
-                              color: Colors.black,
-                            ),
-                            enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Colors.black,
-                              ),
-                            ),
-                          ),
-                          onChanged: (value) {},
-                        ),
-                      ),
-                      Container(
-                        padding: const EdgeInsets.all(12),
-                        margin: const EdgeInsets.only(),
-                        child: TextFormField(
-                          cursorColor: Colors.black,
-                          cursorWidth: 1,
-                          decoration: const InputDecoration(
-                            labelText: 'Fullname',
+                            labelText: 'Email',
                             labelStyle: TextStyle(
                               color: Colors.black,
                             ),
@@ -170,7 +150,27 @@ class _ProfilePageState extends State<ProfilePage> {
                           cursorColor: Colors.black,
                           cursorWidth: 1,
                           decoration: const InputDecoration(
-                            labelText: 'Fullname',
+                            labelText: 'Kata Sandi',
+                            labelStyle: TextStyle(
+                              color: Colors.black,
+                            ),
+                            enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                          onChanged: (value) {},
+                        ),
+                      ),
+                      Container(
+                        padding: const EdgeInsets.all(12),
+                        margin: const EdgeInsets.only(),
+                        child: TextFormField(
+                          cursorColor: Colors.black,
+                          cursorWidth: 1,
+                          decoration: const InputDecoration(
+                            labelText: 'Alamat',
                             labelStyle: TextStyle(
                               color: Colors.black,
                             ),

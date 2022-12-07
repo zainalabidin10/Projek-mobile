@@ -1,6 +1,5 @@
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
+import 'package:project_madbuah/helper_widget/botnavbar.dart';
 import 'package:project_madbuah/home/login_page.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -14,181 +13,74 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
-      body: SingleChildScrollView(
-        controller: ScrollController(),
-        child: Column(
-          children: [
-            Container(
-              constraints: const BoxConstraints(
-                maxHeight: 150.0,
-              ),
-              width: MediaQuery.of(context).size.width,
-              color: Colors.orange[600],
-              padding: const EdgeInsets.symmetric(
-                horizontal: 20.0,
-              ),
-              child: Row(
-                children: [
-                  const CircleAvatar(
-                    radius: 30.0,
-                    backgroundImage:
-                        NetworkImage("https://i.ibb.co/PGv8ZzG/me.jpg"),
-                  ),
-                  const SizedBox(
-                    width: 8.0,
-                  ),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                        Text(
-                          "Hello",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 10.0,
-                          ),
-                        ),
-                        Text(
-                          "Jhonny Deep",
-                          style: TextStyle(
-                            fontSize: 16.0,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 8.0,
-                  ),
-                  IconButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return LoginPage();
-                          },
-                        ),
-                      );
-                    },
-                    icon: const Icon(
-                      Icons.logout,
-                      size: 24.0,
-                    ),
-                  ),
-                  InkWell(
-                    onTap: () {},
-                    child: CircleAvatar(
-                      radius: 16.0,
-                      backgroundColor: Colors.blueGrey[900],
-                      child: const Icon(
-                        Icons.edit,
-                        size: 12.0,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                      color: Colors.orange,
-                      borderRadius: BorderRadius.circular(10)),
-                  child: Column(
-                    children: [
-                      Container(
-                        padding:
-                            const EdgeInsets.only(top: 12, right: 12, left: 12),
-                        margin: const EdgeInsets.only(),
-                        child: TextFormField(
-                          cursorColor: Colors.black,
-                          cursorWidth: 1,
-                          decoration: const InputDecoration(
-                            labelText: 'Email',
-                            labelStyle: TextStyle(
-                              color: Colors.black,
-                            ),
-                            enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Colors.black,
-                              ),
-                            ),
-                          ),
-                          onChanged: (value) {},
-                        ),
-                      ),
-                      Container(
-                        padding: const EdgeInsets.all(12),
-                        margin: const EdgeInsets.only(),
-                        child: TextFormField(
-                          cursorColor: Colors.black,
-                          cursorWidth: 1,
-                          decoration: const InputDecoration(
-                            labelText: 'Nama Lengkap',
-                            labelStyle: TextStyle(
-                              color: Colors.black,
-                            ),
-                            enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Colors.black,
-                              ),
-                            ),
-                          ),
-                          onChanged: (value) {},
-                        ),
-                      ),
-                      Container(
-                        padding: const EdgeInsets.all(12),
-                        margin: const EdgeInsets.only(),
-                        child: TextFormField(
-                          cursorColor: Colors.black,
-                          cursorWidth: 1,
-                          decoration: const InputDecoration(
-                            labelText: 'Kata Sandi',
-                            labelStyle: TextStyle(
-                              color: Colors.black,
-                            ),
-                            enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Colors.black,
-                              ),
-                            ),
-                          ),
-                          onChanged: (value) {},
-                        ),
-                      ),
-                      Container(
-                        padding: const EdgeInsets.all(12),
-                        margin: const EdgeInsets.only(),
-                        child: TextFormField(
-                          cursorColor: Colors.black,
-                          cursorWidth: 1,
-                          decoration: const InputDecoration(
-                            labelText: 'Alamat',
-                            labelStyle: TextStyle(
-                              color: Colors.black,
-                            ),
-                            enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Colors.black,
-                              ),
-                            ),
-                          ),
-                          onChanged: (value) {},
-                        ),
-                      ),
-                    ],
-                  ),
-                )),
-          ],
+      appBar: AppBar(
+        title: Text(
+          'Profil',
+          style: TextStyle(fontWeight: FontWeight.w700, color: Colors.black),
         ),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return Navbar();
+                },
+              ),
+            );
+          },
+          icon: Icon(Icons.arrow_back_ios),
+          color: Colors.black,
+        ),
+        elevation: 0,
+        backgroundColor: Colors.white,
+        centerTitle: true,
       ),
+      body: SingleChildScrollView(
+          padding: EdgeInsets.all(20),
+          child: Column(
+            children: [
+              SizedBox(
+                width: 120,
+                height: 120,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(100),
+                  child: Image.asset(
+                    "w.jpeg",
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 10.0,
+              ),
+              Text(
+                'Kristopher',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+              Text(
+                'kristopherbeethoven24@gmail.com',
+                style: TextStyle(fontSize: 14),
+              ),
+              const SizedBox(
+              height: 10.0,
+              ),
+              Container(
+                width: 200,
+                height: 40,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Color(0xffF2861E),
+                    side: BorderSide.none,
+                    shape: StadiumBorder()
+                  ),
+                    onPressed: () {},
+                    child: Text(
+                      'Ubah Profil',
+                      style: TextStyle(color: Colors.white),
+                    )),
+              )
+            ],
+          )),
     );
   }
 }

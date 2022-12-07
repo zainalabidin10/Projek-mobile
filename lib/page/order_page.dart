@@ -1,22 +1,26 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:project_madbuah/helper_widget/botnavbar.dart';
 
-class CategoryPage extends StatefulWidget {
-  const CategoryPage({Key? key}) : super(key: key);
+class OrderPage extends StatefulWidget {
+  const OrderPage({Key? key}) : super(key: key);
 
   @override
-  State<CategoryPage> createState() => _CategoryPageState();
+  State<OrderPage> createState() => _OrderPageState();
 }
 
-class _CategoryPageState extends State<CategoryPage> {
+class _OrderPageState extends State<OrderPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Kategori',
-        style: TextStyle(color: Colors.black),
+        title: Text('Pesanan',
+        style: TextStyle(
+          color: Colors.black
+        ),
         ),
         leading: IconButton(
           onPressed: () {

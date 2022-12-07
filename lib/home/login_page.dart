@@ -1,14 +1,7 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:project_madbuah/page/main_homepage.dart';
+import 'package:project_madbuah/helper_widget/botnavbar.dart';
 import 'package:project_madbuah/main.dart';
 import 'package:project_madbuah/home/register_page.dart';
-import 'package:project_madbuah/page/mainpage.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -44,17 +37,17 @@ class _LoginPageState extends State<LoginPage> {
                     Container(
                       margin: EdgeInsets.only(top: 20),
                       child: Image.asset(
-                        "assets/ssss.jpg",
-                        width: 90,
-                        height: 90,
+                        "assets/Madbuah.png",
+                        width: 200,
+                        height: 200,
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.only(top: 20),
+                      margin: EdgeInsets.only(top: 20, bottom: 20),
                       alignment: Alignment.bottomCenter,
                       child: Text(
                         "Masuk",
-                        style: TextStyle(color: Colors.white, fontSize: 20),
+                        style: TextStyle(color: Colors.white, fontSize: 30),
                       ),
                     )
                   ],
@@ -139,7 +132,7 @@ class _LoginPageState extends State<LoginPage> {
                           context,
                           MaterialPageRoute(
                             builder: (context) {
-                              return Home();
+                              return Navbar();
                             },
                           ),
                         );

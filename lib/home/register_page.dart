@@ -1,5 +1,3 @@
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 import 'package:project_madbuah/home/login_page.dart';
 
@@ -35,9 +33,9 @@ class _RegisterPageState extends State<RegisterPage> {
                     Container(
                       margin: EdgeInsets.only(top: 20),
                       child: Image.asset(
-                        "assets/ssss.jpg",
-                        height: 90,
-                        width: 90,
+                        "assets/Madbuah.png",
+                        height: 120,
+                        width: 120,
                       ),
                     ),
                     Container(

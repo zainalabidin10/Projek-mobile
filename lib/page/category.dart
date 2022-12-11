@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:project_madbuah/helper_widget/botnavbar.dart';
+import 'package:project_madbuah/page/shopping_page2.dart';
 
 class CategoryPage extends StatefulWidget {
   const CategoryPage({Key? key}) : super(key: key);
@@ -14,28 +15,80 @@ class _CategoryPageState extends State<CategoryPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Kategori',
-        style: TextStyle(color: Colors.black),
+        appBar: AppBar(
+          title: Text(
+            'Kategori',
+            style: TextStyle(color: Colors.black),
+          ),
+          leading: IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return Navbar();
+                  },
+                ),
+              );
+            },
+            icon: Icon(Icons.arrow_back_ios),
+            color: Colors.black,
+          ),
+          elevation: 0,
+          backgroundColor: Colors.white,
+          centerTitle: true,
         ),
-        leading: IconButton(
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) {
-                  return Navbar();
-                },
+        body: Row(
+          children: [
+            Container(
+              padding: EdgeInsets.only(left: 20, top: 20),
+              width: 120,
+              height: 120,
+              child: ConstrainedBox(
+                constraints: BoxConstraints.expand(),
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.white,
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return ShoppingPage2();
+                        },
+                      ),
+                    );
+                  },
+                  child: Image.asset('icons/apple.png'),
+                ),
               ),
-            );
-          },
-          icon: Icon(Icons.arrow_back_ios),
-          color: Colors.black,
-        ),
-        elevation: 0,
-        backgroundColor: Colors.white,
-        centerTitle: true,
-      ),
-    );
+            ),
+            Container(
+              padding: EdgeInsets.only(left: 20, top: 20),
+              width: 120,
+              height: 120,
+              child: ConstrainedBox(
+                constraints: BoxConstraints.expand(),
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.white,
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return ShoppingPage2();
+                        },
+                      ),
+                    );
+                  },
+                  child: Image.asset('icons/fruit.png'),
+                ),
+              ),
+            )
+          ],
+        ));
   }
 }

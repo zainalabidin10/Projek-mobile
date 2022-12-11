@@ -4,7 +4,7 @@ import 'package:project_madbuah/page/category.dart';
 import 'package:project_madbuah/page/dashboard_page.dart';
 import 'package:project_madbuah/page/order_page.dart';
 import 'package:project_madbuah/page/profile_page.dart';
-import 'package:project_madbuah/page/shopping_page.dart';
+import 'package:project_madbuah/page/Cart_page.dart';
 
 class Navbar extends StatefulWidget {
   const Navbar({Key? key}) : super(key: key);
@@ -20,7 +20,7 @@ class _NavbarState extends State<Navbar> {
   List<Widget> _widgetOption = <Widget>[
     DashboardPage(),
     OrderPage(),
-    ShoppingPage(),
+    CartPage(),
     CategoryPage(),
     ProfilePage()
   ];

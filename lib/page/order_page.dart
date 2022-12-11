@@ -17,10 +17,9 @@ class _OrderPageState extends State<OrderPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Pesanan',
-        style: TextStyle(
-          color: Colors.black
-        ),
+        title: Text(
+          'Pesanan',
+          style: TextStyle(color: Colors.black),
         ),
         leading: IconButton(
           onPressed: () {
@@ -39,6 +38,21 @@ class _OrderPageState extends State<OrderPage> {
         elevation: 0,
         backgroundColor: Colors.white,
         centerTitle: true,
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Card(
+                child: ListTile(
+                    title: Text('ID Pesanan'),
+                    subtitle: Text('12 Item')),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

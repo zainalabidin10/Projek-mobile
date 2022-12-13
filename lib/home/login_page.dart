@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:project_madbuah/helper_widget/botnavbar.dart';
 import 'package:project_madbuah/main.dart';
 import 'package:project_madbuah/home/register_page.dart';
+import 'package:project_madbuah/home/splash_screen.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+import 'dart:async';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -11,6 +17,44 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final TextEditingController userNameController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
+  bool visible = false;
+  bool isPasswordVisible = false;
+
+  List result = [];
+
+  final String sUrl = '';
+
+  @override
+  Future<void> _login() async {
+    Uri url = Uri.parse(
+        "http://192.168.1.19/api/login.php?username=${userNameController.text.toString()}&password=${passwordController.text.toString()}");
+    var response = await http.get(url);
+    var data = jsonDecode(response.body);
+
+    if (data.toString() == "berhasil") {
+      Fluttertoast.showToast(
+          msg: "Berhasil Login",
+          toastLength: Toast.LENGTH_SHORT,
+          timeInSecForIosWeb: 1,
+          gravity: ToastGravity.CENTER,
+          backgroundColor: Colors.green,
+          textColor: Colors.white);
+
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => Navbar()));
+    } else {
+      Fluttertoast.showToast(
+          msg: "Username atau Password salah",
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.CENTER,
+          backgroundColor: Colors.red,
+          textColor: Colors.white);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,6 +111,7 @@ class _LoginPageState extends State<LoginPage> {
                     padding: const EdgeInsets.all(12),
                     margin: const EdgeInsets.only(),
                     child: TextFormField(
+                      controller: userNameController,
                       cursorColor: Color(0xffF5591F),
                       decoration: const InputDecoration(
                         labelText: 'Nama Pengguna',
@@ -81,7 +126,6 @@ class _LoginPageState extends State<LoginPage> {
                             borderRadius:
                                 BorderRadius.all(Radius.circular(20))),
                       ),
-                      onChanged: (value) {},
                     ),
                   ),
                   const SizedBox(
@@ -94,6 +138,7 @@ class _LoginPageState extends State<LoginPage> {
                     padding: const EdgeInsets.all(12),
                     margin: const EdgeInsets.only(),
                     child: TextFormField(
+                      controller: passwordController,
                       obscureText: true,
                       decoration: const InputDecoration(
                         labelText: 'Kata Sandi',
@@ -108,7 +153,6 @@ class _LoginPageState extends State<LoginPage> {
                             borderRadius:
                                 BorderRadius.all(Radius.circular(20))),
                       ),
-                      onChanged: (value) {},
                     ),
                   ),
                   const SizedBox(
@@ -127,15 +171,16 @@ class _LoginPageState extends State<LoginPage> {
                       style: ElevatedButton.styleFrom(
                         primary: Color(0xffF2861E),
                       ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return Navbar();
-                            },
-                          ),
-                        );
+                      onPressed: () async {
+                        final isValidForm = _formKey.currentState!.validate();
+                        if (isValidForm) {
+                          var sharedPref =
+                              await SharedPreferences.getInstance();
+                          sharedPref.setBool(SplashScreenState.KEYLOGIN, true);
+                          _login();
+                        } else {
+                          return null;
+                        }
                       },
                     ),
                   ),

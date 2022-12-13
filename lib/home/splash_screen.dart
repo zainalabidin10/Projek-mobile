@@ -3,36 +3,49 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:project_madbuah/helper_widget/botnavbar.dart';
 import 'package:project_madbuah/home/login_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
   @override
-  State<SplashScreen> createState() => _SplashScreenState();
+  State<SplashScreen> createState() => SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
+class SplashScreenState extends State<SplashScreen> {
+
+  static const String KEYLOGIN = "Masuk";
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    startTimer();
+    whereToGo();
   }
 
-  startTimer() async {
-    var duration = Duration(seconds: 3);
-    return Timer(duration, loginRoute);
+  void whereToGo() async {
+    var sharePref = await SharedPreferences.getInstance();
+
+    var isLogeedIn = sharePref.getBool(KEYLOGIN);
+
+    Timer(Duration(seconds: 4), () {
+      if (isLogeedIn != null) {
+        if (isLogeedIn) {
+          Navigator.pushReplacement(
+              context, MaterialPageRoute(builder: (context) => Navbar()));
+        } else {
+          Navigator.pushReplacement(
+              context, MaterialPageRoute(builder: (context) => LoginPage()));
+        }
+      } else {
+        Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => LoginPage()));
+      }
+    });
   }
 
-  loginRoute(){
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(
-        builder: (context) => LoginPage()
-        ));
-  }
 
   @override
   Widget build(BuildContext context) {
